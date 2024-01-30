@@ -19,6 +19,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/students")
 @Tag(name = "Students", description = "O'quvchilar bo'yicha CRUD")
+@CrossOrigin(origins="*")
 public class StudentsController {
 
     private final StudentsService studentsService;

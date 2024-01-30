@@ -18,6 +18,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/payments")
 @Tag(name = "Payments", description = "To'lovlar")
+@CrossOrigin(origins="*")
 public class PaymentsController {
 
     private final PaymentsService paymentsService;

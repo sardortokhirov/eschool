@@ -18,6 +18,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/teachers")
 @Tag(name = "Teachers", description = "Ustozlar bo'yicha CRUD")
+@CrossOrigin(origins="*")
 public class TeachersController {
 
     private final TeachersService teachersService;

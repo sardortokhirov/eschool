@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping("/api/v1/settings")
 @Tag(name = "Settings", description = "Tizimdagi asosiy sozlamalar")
+@CrossOrigin(origins="*")
 public class SettingsController {
 
     private final AppSettingsService settingsService;

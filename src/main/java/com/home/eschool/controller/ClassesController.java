@@ -17,6 +17,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/classes")
 @Tag(name = "Classes", description = "Sinflar bo'yicha CRUD")
+@CrossOrigin(origins="*")
 public class ClassesController {
 
     private final ClassesService classesService;

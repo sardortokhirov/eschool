@@ -7,10 +7,7 @@ import com.home.eschool.services.GradeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -18,6 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/grade")
 @Tag(name = "Grade", description = "Baholash")
+@CrossOrigin(origins="*")
 public class GradeController {
 
     private final GradeService gradeService;

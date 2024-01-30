@@ -7,10 +7,7 @@ import com.home.eschool.services.AttendanceService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -19,6 +16,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/attendance")
 @Tag(name = "Attendance", description = "Davomatlar bo'yicha CRUD")
+@CrossOrigin(origins="*")
 public class AttendanceController {
 
     private final AttendanceService attendanceService;

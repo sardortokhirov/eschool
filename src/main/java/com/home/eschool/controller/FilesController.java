@@ -20,6 +20,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/files")
 @Tag(name = "Files", description = "Fayllar bo'yicha CRUD")
+@CrossOrigin(origins="*")
 public class FilesController {
 
     private final FilesService filesService;

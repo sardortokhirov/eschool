@@ -17,6 +17,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/subjects")
 @Tag(name = "Subjects", description = "Fanlar bo'yicha CRUD")
+@CrossOrigin(origins="*")
 public class SubjectsController {
 
     private final SubjectsService subjectsService;
