@@ -56,6 +56,6 @@ public class FilesController {
         headers.set("Content-Disposition", "attachment; filename=" + file.getName());
         headers.setContentType(MediaType.valueOf(file.getMimeType()));
 
-        return ResponseEntity.ok().headers(headers).body(file.getContent());
+        return ResponseEntity.ok().headers(headers).body(filesService.getStudentProfileImage(fileId));
     }
 }
