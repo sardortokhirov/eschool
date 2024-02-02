@@ -1,6 +1,6 @@
 # E-SCHOOL API
 
-Language: Java (1.8)
+Language: Java (17)
 
 Framework: Spring (2.5.5)
 
