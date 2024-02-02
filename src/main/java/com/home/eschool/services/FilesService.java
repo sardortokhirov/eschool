@@ -73,6 +73,13 @@ public class FilesService {
         if (files == null) {
             return null;
         }
+        if(files.getContent()!=null){
+            return new FilesPayload(files.getId(), files.getName(),
+                    String.format("/download/%s", files.getId()),
+                    String.format("data:%s;base64,%s", files.getMimeType(),
+                            Base64.getEncoder().encodeToString(files.getContent()))
+            );
+        }
         return new FilesPayload(files.getId(), files.getName(),
                 String.format("/download/%s", files.getId()),
                 String.format("data:%s;base64,%s", files.getMimeType(),

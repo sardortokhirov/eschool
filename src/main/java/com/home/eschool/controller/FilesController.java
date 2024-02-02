@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
+import java.util.Base64;
 import java.util.UUID;
 
 @RestController
@@ -56,6 +57,9 @@ public class FilesController {
         headers.set("Content-Disposition", "attachment; filename=" + file.getName());
         headers.setContentType(MediaType.valueOf(file.getMimeType()));
 
+        if(file.getContent()!=null){
+            return ResponseEntity.ok().headers(headers).body(file.getContent());
+        }
         return ResponseEntity.ok().headers(headers).body(filesService.getStudentProfileImage(fileId));
     }
 }
