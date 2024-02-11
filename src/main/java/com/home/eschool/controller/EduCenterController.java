@@ -1,10 +1,7 @@
 package com.home.eschool.controller;
 
-import com.home.eschool.entity.EduCenter;
 import com.home.eschool.models.dto.EduCenterDto;
 import com.home.eschool.models.payload.EduCenterPayload;
-import com.home.eschool.models.payload.PageablePayload;
-import com.home.eschool.models.payload.StudentsPayloadDetails;
 import com.home.eschool.services.EduCenterService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -51,7 +48,7 @@ public class EduCenterController {
     @GetMapping("/")
     @Operation(security = {@SecurityRequirement(name = "bearer-key")})
     @Secured("ROLE_ADMIN")
-    public List<EduCenter> getAll(@RequestParam(required = false, name = "search", defaultValue = "") String search) {
+    public List<EduCenterPayload> getAll(@RequestParam(required = false, name = "search", defaultValue = "") String search) {
         return eduCenterService.getAll(search);
     }
 

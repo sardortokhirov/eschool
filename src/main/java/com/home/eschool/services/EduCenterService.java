@@ -18,6 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -72,11 +73,23 @@ public class EduCenterService {
         eduCenterRepo.save(eduCenter);
     }
 
-    public List<EduCenter> getAll(String search) {
-        if (!Utils.isEmpty(search))
-            return eduCenterRepo.findByTitleContainingIgnoreCase(search);
-        return eduCenterRepo.findAll();
+    public List<EduCenterPayload> getAll(String search) {
+        List<EduCenter> byTitleContainingIgnoreCase;
+        if (!Utils.isEmpty(search)) {
+            byTitleContainingIgnoreCase = eduCenterRepo.findByTitleContainingIgnoreCase(search);
+        } else {
+            byTitleContainingIgnoreCase = eduCenterRepo.findAll();
+        }
+
+        List<EduCenterPayload> eduCenterPayloads = new ArrayList<>();
+        byTitleContainingIgnoreCase.forEach(eduCenter ->
+                eduCenterPayloads.add(new EduCenterPayload(
+                        eduCenter.getId(), eduCenter.getTitle(), eduCenter.getAddress(), eduCenter.getContacts(), eduCenter.getLocation(), Utils.convertToObject(eduCenter.getLinks(), JsonNode.class)
+                ))
+        );
+        return eduCenterPayloads;
     }
+
 
     public EduCenterPayload getById(UUID id) {
         EduCenter eduCenter = eduCenterRepo.findById(id).orElse(null);
