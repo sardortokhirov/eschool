@@ -73,7 +73,7 @@ public class FilesService {
         if (files == null) {
             return null;
         }
-        if(files.getContent()!=null){
+        if (files.getContent() != null) {
             return new FilesPayload(files.getId(), files.getName(),
                     String.format("/download/%s", files.getId()),
                     String.format("data:%s;base64,%s", files.getMimeType(),
@@ -100,9 +100,16 @@ public class FilesService {
     }
 
     public byte[] getStudentProfileImage(UUID student_id) {
-        return s3Service.getObject(
-                s3Buckets.getUser(),
-                "profile-images/%s".formatted(student_id)
-        );
+        byte[] s3ServiceObject;
+        try {
+            s3ServiceObject = s3Service.getObject(
+                    s3Buckets.getUser(),
+                    "profile-images/%s".formatted(student_id)
+            );
+        } catch (Exception e) {
+            System.err.println("User image doesn't exist");
+            return new byte[0];
+        }
+        return s3ServiceObject;
     }
 }

@@ -112,6 +112,7 @@ public class StudentsService implements CrudInterface<StudentsDto, StudentsPaylo
         students.setMonthlyPayment(studentsDto.getMonthlyPayment());
         students.setSex(studentsDto.getSex());
         students.setFile_id(studentsDto.getFile_id());
+        students.setAdditionalInfo(studentsDto.getAdditionalInfo().asText());
 
         try {
             students.setDateOfBirth(new Date(simpleDateFormat.parse(studentsDto.getDateOfBirth()).getTime()));
