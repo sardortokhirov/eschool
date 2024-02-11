@@ -50,5 +50,6 @@ public class StudentsDto {
     private BirthInfo birthInfo;
     private BigDecimal monthlyPayment;
     private JsonNode additionalInfo;
+    private JsonNode discount;
     private String sex;
 }

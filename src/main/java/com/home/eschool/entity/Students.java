@@ -38,6 +38,9 @@ public class Students extends BaseEntity {
     @Column(columnDefinition = "text")
     private String birthInfo;
 
+    @Column(columnDefinition = "text")
+    private String discount;
+
     @Column(columnDefinition = "numeric")
     private BigDecimal monthlyPayment;
 

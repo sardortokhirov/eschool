@@ -21,6 +21,7 @@ public class StudentsPayloadDetails extends StudentsPayload {
     private Object birthInfo;
     private BigDecimal monthlyPayment;
     private Object additionalInfo;
+    private Object discount;
     private String sex;
     private FilesPayload file;
 
@@ -39,7 +40,8 @@ public class StudentsPayloadDetails extends StudentsPayload {
                                   BigDecimal monthlyPayment,
                                   Object additionalInfo,
                                   String sex,
-                                  FilesPayload file) {
+                                  FilesPayload file,
+                                  Object discount) {
         super(id, firstName, lastName, sureName, dateOfBirth, phoneNumber, classes);
         this.address = address;
         this.avatar = avatar;
@@ -50,5 +52,8 @@ public class StudentsPayloadDetails extends StudentsPayload {
         this.additionalInfo = additionalInfo;
         this.sex = sex;
         this.file = file;
+        this.discount = discount;
     }
+
+
 }

@@ -113,6 +113,7 @@ public class StudentsService implements CrudInterface<StudentsDto, StudentsPaylo
         students.setSex(studentsDto.getSex());
         students.setFile_id(studentsDto.getFile_id());
         students.setAdditionalInfo(studentsDto.getAdditionalInfo().asText());
+        students.setDiscount(studentsDto.getDiscount().asText());
 
         try {
             students.setDateOfBirth(new Date(simpleDateFormat.parse(studentsDto.getDateOfBirth()).getTime()));
@@ -202,7 +203,8 @@ public class StudentsService implements CrudInterface<StudentsDto, StudentsPaylo
                 students.getMonthlyPayment(),
                 Utils.convertToObject(students.getAdditionalInfo(), JsonNode.class),
                 students.getSex(),
-                filesService.getFileInfo(students.getFile_id())
+                filesService.getFileInfo(students.getFile_id()),
+                Utils.convertToObject(students.getDiscount(), JsonNode.class)
         );
     }
 
