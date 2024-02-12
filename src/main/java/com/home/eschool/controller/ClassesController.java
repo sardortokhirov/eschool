@@ -15,8 +15,8 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1/classes")
-@Tag(name = "Classes", description = "Sinflar bo'yicha CRUD")
+@RequestMapping("/api/v1/groups")
+@Tag(name = "Groups", description = "Guruhlar  bo'yicha CRUD")
 @CrossOrigin(origins="*")
 public class ClassesController {
 
